@@ -16,28 +16,28 @@ class UserSeeder extends Seeder
             [
                 'name' => 'John Doe',
                 'email' => 'john@example.com',
-                'password' => hash ('sha256', 'test1234'),
+                'password' => bcrypt('test1234'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'name' => 'Jane Doe',
                 'email' => 'jane@example.com',
-                'password' => hash ('sha256', 'test1234'),
+                'password' => bcrypt('test1234'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'name' => 'Fulano Silva',
                 'email' => 'fulano@example.com',
-                'password' => hash ('sha256', 'test1234'),
+                'password' => bcrypt('test1234'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'name' => 'Beltrano Silva',
                 'email' => 'beltrano@example.com',
-                'password' => hash ('sha256', 'test1234'),
+                'password' => bcrypt('test1234'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

@@ -16,6 +16,7 @@ class ProductSeeder extends Seeder
             [
                 'title' => 'The Legend of Zelda: Breath of the Wild',
                 'image' => 'https://cdn.thegamesdb.net/images/thumb/boxart/front/42293-1.jpg',
+                'public_id' => 42293,
                 'genre' => 'Action-Adventure',
                 'platform' => 'Nintendo Switch',
                 'release_date' => '2017-03-03',
@@ -26,6 +27,7 @@ class ProductSeeder extends Seeder
             [
                 'title' => 'God of War',
                 'image' => 'https://cdn.thegamesdb.net/images/thumb/boxart/front/73778-1.jpg',
+                'public_id' => 73778,
                 'genre' => 'Action RPG',
                 'platform' => 'PlayStation 4',
                 'release_date' => '2018-04-20',
@@ -36,6 +38,7 @@ class ProductSeeder extends Seeder
             [
                 'title' => 'Minecraft',
                 'image' => 'https://cdn.thegamesdb.net/images/thumb/boxart/front/50424-1.jpg',
+                'public_id' => 50424,
                 'genre' => 'Sandbox',
                 'platform' => 'PC',
                 'release_date' => '2011-11-18',
@@ -46,6 +49,7 @@ class ProductSeeder extends Seeder
             [
                 'title' => 'The Witcher 3: Wild Hunt',
                 'image' => 'https://cdn.thegamesdb.net/images/thumb/boxart/front/33255-1.jpg',
+                'public_id' => 33255,
                 'genre' => 'Action RPG',
                 'platform' => 'PC',
                 'release_date' => '2015-05-19',
@@ -56,6 +60,7 @@ class ProductSeeder extends Seeder
             [
                 'title' => 'Super Mario Odyssey',
                 'image' => 'https://cdn.thegamesdb.net/images/thumb/boxart/front/42320-1.jpg',
+                'public_id' => 42320,
                 'genre' => 'Platformer',
                 'platform' => 'Nintendo Switch',
                 'release_date' => '2017-10-27',
@@ -63,6 +68,29 @@ class ProductSeeder extends Seeder
                 'description' => 'A 3D platformer featuring Mario on a globe-trotting adventure.',
                 'rating' => 'E',
             ],
+            [
+                'title' => 'FINAL FANTASY VII REBIRTH',
+                'image' => 'https://cdn.thegamesdb.net/images/thumb/boxart/front/130495-1.jpg',
+                'public_id' => 130495,
+                'genre' => 'RPG',
+                'platform' => 'PlayStation 5',
+                'release_date' => '2025-01-23',
+                'price' => 69.99,
+                'description' => 'A role-playing game set in a fantasy world.',
+                'rating' => 'M',
+            ],
+            [
+                'title' => 'Resident Evil 4',
+                'image' => 'https://cdn.thegamesdb.net/images/thumb/boxart/front/105569-1.jpg',
+                'public_id' => 105569,
+                'genre' => 'Survival Horror',
+                'platform' => 'PlayStation 5',
+                'release_date' => '2023-03-24',
+                'price' => 49.99,
+                'description' => 'A survival horror game set in a creepy atmosphere.',
+                'rating' => 'M',
+            ],
+
 
         ]);
     }

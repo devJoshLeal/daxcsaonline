@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PersonalAccessToken extends Model
+class Token extends Model
 {
     protected $table = 'personal_access_tokens';
     protected $fillable = [
@@ -14,6 +14,9 @@ class PersonalAccessToken extends Model
         'abilities',
         'last_used_at',
         'expires_at'
-    ]
+    ];
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
 }
