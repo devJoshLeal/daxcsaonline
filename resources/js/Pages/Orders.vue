@@ -33,12 +33,12 @@ onMounted(async () => {
     <template #header>
         <div class="flex justify-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                DashBoard
+                Orders
             </h2>
         </div>
     </template>
-    <div>
-        <Welcome />
+    <div class="max-w-5xl mx-auto overflow-hidden">
+        <OrderList v-if="token" :token="token" />
     </div>
 </AppLayout>
 </template>

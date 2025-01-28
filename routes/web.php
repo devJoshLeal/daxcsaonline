@@ -3,26 +3,21 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-/*
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+
+Route::controller(App\Http\Controllers\WebController::class)->group(function () {
+    Route::get('/', 'dashboard')->name('dashboard');
+    Route::get('/orders', 'orders')->name('orders')->middleware([
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified',
     ]);
-});
-*/
-Route::get('/dashboard', function () {
-    return redirect()->route('dashboard');
-});
-Route::middleware([
-])->group(function () {
-    Route::get('/', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+
 });
 Route::group(['prefix' => 'api'], function () {
+    Route::controller(App\Http\Controllers\TokenController::class)->group(function () {
+        Route::get('/authcontrol/tokenfromuser', 'getTokenFromUser')->name('token.mytoken');
+
+    });
     Route::middleware('api.token')->controller(App\Http\Controllers\OrderController::class)->group(function () {
         Route::get('/test','test');
         Route::get('/order/track/{trackId}', 'orderByTrack');

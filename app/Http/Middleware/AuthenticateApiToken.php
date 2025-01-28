@@ -29,8 +29,13 @@ class AuthenticateApiToken
             $request->merge(['token' => $tokenDB->token]);
             // Continuar con la solicitud
             return $next($request);
-            }
-        // Si el token no existe o ha expirado, devolver un error
+         }
+         // Si el token ha expirado, enviar un mensaje de error
+         if ($tokenDB && $tokenDB->expires_at < now()) {
+            return response()->json(['error' => 'Token expirado'], 401);
+         }
+
+        // Si el token no existe devolver un error
         return response()->json(['error' => 'Token no válido'], 401);
 
     }
