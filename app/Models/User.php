@@ -31,10 +31,17 @@ class User extends Authenticatable
     ];
 
     protected $hidden = [
+        'email',
         'password',
+        'two_factor_confirmed_at',
+        'email_verified_at',
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+        'profile_photo_path',
+        'created_at',
+        'updated_at'
+
     ];
 
     protected $appends = [
@@ -51,5 +58,9 @@ class User extends Authenticatable
 
     public function orders(){
         return $this->hasMany(Order::class, 'user_id', 'id');
+    }
+
+    public function webToken(){
+        return $this->hasOne(Token::class,'user_id','id');
     }
 }

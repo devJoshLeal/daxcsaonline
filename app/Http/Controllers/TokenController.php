@@ -8,14 +8,8 @@ use App\Models\Token;
 
 class TokenController extends Controller
 {
-    public $apiData = array(
-        'status'    => 'success',
-        'code'      => 200,
-        'message'   => '',
-        'data'      => array(),
-        'errors'    => array()
-    );
     public function getTokenFromUser( Request $request ){
+        // Search for token based on user's json
         $json = $request->input('json');
         $params = json_decode($json, true);
         $userId = $params['id'];
@@ -25,7 +19,7 @@ class TokenController extends Controller
             if($token){
                 $this->apiData['data'] = $token;
                 $this->apiData['message'] = 'Token found';
-                // Si el token ya expiro, se extiende por 3 dias
+                // If token expired, extends 3 more days
                 if($token->expires_at < now()){
                     $token->expires_at = now()->addDays(3);
                     $token->save();
@@ -33,13 +27,14 @@ class TokenController extends Controller
                 }
             }
             else{
-                // Si no existe token, se crea uno nuevo
+                // If token does not exist, it creates a new one
                 $token = new Token();
                 $token->user_id = $userId;
                 $token->token = bin2hex(random_bytes(32));
                 $token->last_used_at = now();
                 $token->expires_at = now()->addDays(3);
                 $token->save();
+                $this->apiData['code'] = 201;
                 $this->apiData['data'] = $token;
                 $this->apiData['message'] = 'Token created';
             }

@@ -7,14 +7,6 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public $apiData = array(
-        'status'    => 'success',
-        'code'      => 200,
-        'message'   => '',
-        'data'      => array(),
-        'errors'    => array()
-    );
-
     public function getProduct( $publicId){
         $product = Product::where('public_id', $publicId)->first();
         if($product){

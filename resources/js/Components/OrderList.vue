@@ -79,6 +79,7 @@
 
   <script>
   export default {
+    // Token as prop
     props: {
         token: {
             type: String
@@ -91,19 +92,18 @@
     },
     async created() {
         try {
-        // Replace with your API endpoint
+        // Fetch all orders from current User
         const response = await axios.get('/api/order/byUser/', {
             headers: {
             Authorization: this.token
             },
         });
-        this.orders = response.data.data; // Populate the order object with API data
+        this.orders = response.data.data;
 
         } catch (error) {
         console.error('Error fetching order data:', error);
         }
     },
-    // Agrega esta función a tu objeto de métodos
     methods: {
         dateFormater(date) {
             const fecha = new Date(date);

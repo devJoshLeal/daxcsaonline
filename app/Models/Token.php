@@ -9,11 +9,7 @@ class Token extends Model
     protected $table = 'personal_access_tokens';
     protected $fillable = [
         'user_id',
-        'name',
-        'token',
-        'abilities',
-        'last_used_at',
-        'expires_at'
+        'token'
     ];
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
