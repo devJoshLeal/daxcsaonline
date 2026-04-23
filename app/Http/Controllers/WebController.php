@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Services\WebTokenService;
 use Inertia\Inertia;
+
 
 class WebController extends Controller
 {
@@ -10,6 +13,7 @@ class WebController extends Controller
     }
     //Renders Orders View
     public function orders(){
-        return Inertia::render('Orders');
+        $webToken=WebTokenService::manageToken();
+        return Inertia::render('Orders',["token"=>$webToken]);
     }
 }
