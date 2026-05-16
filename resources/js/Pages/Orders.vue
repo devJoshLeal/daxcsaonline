@@ -14,7 +14,7 @@ const page = usePage();
 </script>
 
 <template>
-<AppLayout title="Dashboard">
+<AppLayout title="Orders">
     <template #header>
         <div class="flex justify-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
