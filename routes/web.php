@@ -1,7 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TokenController;
-
 Route::controller(App\Http\Controllers\WebController::class)->group(function () {
     Route::get('/', 'dashboard')->name('dashboard');
     // Orders tab will be hidden if not logged in

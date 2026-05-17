@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('image') -> nullable();
-            $table->integer('public_id')->unique();
             $table->string('genre');
             $table->string('platform');
             $table->date('release_date')->nullable();
-            $table->decimal('price', 8, 2);
             $table->text('description')->nullable();
             $table->string('rating')->nullable();
             $table->timestamps();

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->integer('quantity');
-            $table->decimal('total_price', 10, 2);
             $table->string('tracking_id')->unique(); // Added tracking_id column
 
             // Adding new fields

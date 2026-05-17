@@ -8,9 +8,6 @@
                     <div class="grid lg:flex"><span>Order Date:</span>
                         <p>{{ dateFormater(order.order_date) }}</p>
                     </div>
-                    <div class="grid lg:flex"><span>Total Price:</span>
-                        <p>$ {{ order.total_price }}</p>
-                    </div>
                     <div class="grid lg:flex"><span>Order ID:</span>
                         <p>{{ order.tracking_id }}</p>
                     </div>
@@ -35,7 +32,6 @@
                                 <span class="font-semibold">Product Description:</span>
                                 <p>{{ product.description }}</p>
                             </div>
-                            <p><span class="font-semibold">Product Price:</span> ${{ product.price }}</p>
                             <p><span class="font-semibold">Quantity:</span> {{ order.quantity }}</p>
                             <div class="block md:hidden">
                                 <span class="font-semibold">Delivery Date:</span>
