@@ -12,54 +12,30 @@
                         <p>{{ order.tracking_id }}</p>
                     </div>
                 </div>
-                <div class="grid md:flex justify-evenly  bg-white py-4 px-4 ">
-                    <div class="flex" v-for="product in order.product_list">
-                        <div>
-                            <div class="w-3/4">
-                                <img :src="product.image" alt="Product Image" class="rounded-lg">
+                <div class=" bg-white p-4">
+                    <div class="flex justify-evenly" v-for="product in order.product_list">
+                        <div class="">
+                            <div class="px-4 md:px-8">
+                                <img :src="product.image" :alt="product.title+' cover'" class="w-24 md:w-32 lg:w-48">
                             </div>
                         </div>
-                        <div class="w-48 text-right md:text-justify">
+                        <div class=" md:text-justify">
                             <div>
-                                <span class="font-semibold">Product Title:</span>
+                                <span class="font-semibold">Product:</span>
                                 <p>{{ product.title }}</p>
                             </div>
                             <div>
-                                <span class="font-semibold">Product Platform:</span>
-                                <p>{{ product.platform }}</p>
-                            </div>
-                            <div class="hidden lg:block">
-                                <span class="font-semibold">Product Description:</span>
-                                <p>{{ product.description }}</p>
+                                <span class="font-semibold">Delivery Date:</span>
+                                <p>{{ dateFormater(order.delivery_date) }}</p>
                             </div>
                             <p><span class="font-semibold">Quantity:</span> {{ order.quantity }}</p>
-                            <div class="block md:hidden">
-                                <span class="font-semibold">Delivery Date:</span>
-                                <p>{{ dateFormater(order.delivery_date) }}</p>
+                            <div class="">
+                                <span class="font-semibold">Address:</span>
+                                <p class="">{{ order.address }}</p>
                             </div>
-                            <div class="block md:hidden">
+                            <div class="">
                                 <span class="font-semibold">Phone:</span>
                                 <p>{{ order.phone }}</p>
-                            </div>
-                            <div class="block md:hidden">
-                                <span class="font-semibold">Address:</span>
-                                <p class="block md:hidden">{{ order.address }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:flex md:justify-center w-48">
-                        <div class="text-right ">
-                            <div>
-                                <span class="font-semibold">Delivery Date:</span>
-                                <p>{{ dateFormater(order.delivery_date) }}</p>
-                            </div>
-                            <div>
-                                <span class="font-semibold">Phone:</span>
-                                <p>{{ order.phone }}</p>
-                            </div>
-                            <div>
-                                <span class="font-semibold">Address:</span>
-                                <p>{{ order.address }}</p>
                             </div>
                         </div>
                     </div>
