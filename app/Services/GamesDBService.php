@@ -10,9 +10,11 @@ class GamesDBService
     public static function fetchByConsole($platform = "PS3", $page = 1)
     {
         $fetchedGames = [];
+        // BUsca si el archivo JSON con el catalogo de juegos ya esta en el storage privado
         $fullrequest = Storage::json($platform . "_games_p_$page.json");
         if (!isset($fullrequest)) {
-            $platformId = self::getPlatId($platform);
+            // Si no se encuentra, hace una petición a la api de theGamesDB
+            $platformId = self::getPlatId($platform); // Se busca el platform ID
             if ($platformId == 0) {
                 return null;
             }
@@ -24,6 +26,7 @@ class GamesDBService
                 'page' => $page
             ]);
             if ($response->ok()) {
+                // Si la petición es correcta, se copia la respuesta en un archivo json
                 Storage::disk('local')->put($platform . "_games_p_$page.json", $response->body());
             }
             $fullrequest = $response->json();
