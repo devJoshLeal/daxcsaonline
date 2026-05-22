@@ -13,11 +13,9 @@
                     </div>
                 </div>
                 <div class=" bg-white p-4">
-                    <div class="flex justify-evenly" v-for="product in order.product_list">
-                        <div class="">
-                            <div class="px-4 md:px-8">
-                                <img :src="product.image" :alt="product.title+' cover'" class="w-24 md:w-32 lg:w-48">
-                            </div>
+                    <div class="grid md:flex justify-evenly" v-for="product in order.product_list">
+                        <div class="flex justify-center">
+                            <ProductBox :product="product"></ProductBox>
                         </div>
                         <div class=" md:text-justify">
                             <div>
@@ -50,7 +48,9 @@
   </template>
 
   <script>
+import ProductBox from './ProductBox.vue';
   export default {
+    components: { ProductBox},
     // Token as prop
     props: {
         token: {
