@@ -41,5 +41,14 @@ class OrderController extends Controller
         }
 
     }
-    
+
+    public function newOrder(Request $request)
+    {
+        return response()->json([
+            'code' => 200,
+            'message' => 'newOrder endpoint reached',
+            'received' => $request->all(),
+        ]);
+    }
 }
+
